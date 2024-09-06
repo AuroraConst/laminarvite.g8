@@ -1,4 +1,4 @@
-<h1>g8 for creating scalajs/vite/laminar project</h1>
+# g8 for creating scalajs/vite/laminar project
 <i>this is italic</i>
 <b>this is bold</b>
 
