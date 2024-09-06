@@ -5,8 +5,6 @@ import org.scalatest._
 
 import wordspec._
 import matchers._
-
-import org.scalatest._
 import scala.concurrent.Future
 
 
