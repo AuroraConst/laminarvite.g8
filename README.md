@@ -7,4 +7,4 @@ As Grace Hopper said:
 > in the future than in the present.Result:
 
 ## Getting Started
-run npminit.bat to initialize npm artifacts and settings
+run `npminit.bat` to initialize npm artifacts and settings
