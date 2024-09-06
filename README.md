@@ -1,6 +1,6 @@
 # g8 for creating scalajs/vite/laminar project
-<i>this is italic</i>
-<b>this is bold</b>
+*this is italic*
+**this is bold**
 
 As Grace Hopper said: 
 > I’ve always been more interested
