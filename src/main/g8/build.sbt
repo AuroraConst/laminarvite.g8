@@ -1,46 +1,31 @@
-import org.scalajs.linker.interface.ModuleSplitStyle
+import org.portablescala.sbtplatformdeps.PlatformDepsPlugin.autoImport._
+import sbt._
 
-organization := "$organization$"
-name := "$name;format="lowercase"$"
-version := "$version$"
-
-
-lazy val $name$ = project.in(file("."))
-  .enablePlugins(ScalaJSPlugin) // Enable the Scala.js plugin in this project
-  .enablePlugins(ScalablyTypedConverterExternalNpmPlugin)
-  .settings(
-    scalaVersion := DependencyVersions.scala,
-
-    // Tell Scala.js that this is an application with a main method
-    scalaJSUseMainModuleInitializer := true,
-
-    /* Configure Scala.js to emit modules in the optimal way to
-     * connect to Vite's incremental reload.
-     * - emit ECMAScript modules
-     * - emit as many small modules as possible for classes in the "livechart" package
-     * - emit as few (large) modules as possible for all other classes
-     *   (in particular, for the standard library)
-     */
-    scalaJSLinkerConfig ~= {
-      _.withModuleKind(ModuleKind.ESModule)
-        .withModuleSplitStyle(
-          ModuleSplitStyle.SmallModulesFor(List("livechart")))
-    },
-
-    /*
-     *add resolver for scalatest
-     */
-    resolvers += "Artima Maven Repository" at "https://repo.artima.com/releases",
+object Dependencies {
 
 
-    /* Depend on the scalajs-dom library.
-     * It provides static types for the browser DOM APIs.
-     */
-    libraryDependencies ++= Dependencies.scalajsdom.value,
-    libraryDependencies ++= Dependencies.laminar.value,
-    libraryDependencies ++= Dependencies.upickle.value,
-    libraryDependencies ++= Dependencies.scalatest.value,
+  val scalajsdom  = Def.setting {
+    Seq("org.scala-js" %%% "scalajs-dom" % DependencyVersions.scalajsdom)
+  }
+  val scalatest   :     Def.Initialize[Seq[ModuleID]] = Def.setting {
+    Seq(
+      "org.scalactic" %%% "scalactic"  % DependencyVersions.scalatest,
+      "org.scalatest" %%% "scalatest" % DependencyVersions.scalatest % "test"
+    )
+  }
 
-    // Tell ScalablyTyped that we manage `npm install` ourselves
-    externalNpm := baseDirectory.value,
-  )
+
+  val laminar: Def.Initialize[Seq[ModuleID]] = Def.setting {
+    Seq(
+      "com.raquo" %%% "laminar" % DependencyVersions.laminar,
+      "com.raquo" %%% "waypoint" % DependencyVersions.waypoint   // Depends on Airstream 17.0.0 & URL DSL 0.6.2
+    )
+  }
+
+  val upickle: Def.Initialize[Seq[ModuleID]] = Def.setting {
+    Seq(
+      "com.lihaoyi" %%% "upickle" % DependencyVersions.`upickle`
+    )
+  }
+
+}
