@@ -74,7 +74,7 @@ lazy val shared = crossProject(JSPlatform, JVMPlatform)
       // annotations on data structures shared between JS and JVM.
       // With this library, on the JVM, these annotations compile to
       // no-op, which is exactly what we need.
-      "org.scala-js" %% "scalajs-stubs" % Versions.ScalaJsStubs
+      "org.scala-js" %% "scalajs-stubs" % DependencyVersions.scalaJsStubs
     )
   )
 
