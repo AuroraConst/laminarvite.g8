@@ -5,7 +5,7 @@ name := "controlledform"
 version := "0.0.1"
 
 
-lazy val controlledform = project.in(file("."))
+lazy val controlledform = project.in(file("client"))
   .enablePlugins(ScalaJSPlugin) // Enable the Scala.js plugin in this project
   .enablePlugins(ScalablyTypedConverterExternalNpmPlugin)
   .settings(
