@@ -38,7 +38,6 @@ lazy val controlledform = project.in(file("client"))
      */
     libraryDependencies ++= Dependencies.scalajsdom.value,
     libraryDependencies ++= Dependencies.laminar.value,
-    libraryDependencies ++= Dependencies.zioJson.value,
     libraryDependencies ++= Dependencies.scalatest.value,
 
     // Tell ScalablyTyped that we manage `npm install` ourselves
