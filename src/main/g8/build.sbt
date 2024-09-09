@@ -62,11 +62,7 @@ lazy val shared = crossProject(JSPlatform, JVMPlatform)
     // on both the client and the server, but you can also make it e.g. server-only.
   )
   .settings(
-    libraryDependencies ++= List(
-      // JSON codec
-      "io.bullet" %%% "borer-core" % Versions.Borer,
-      "io.bullet" %%% "borer-derivation" % Versions.Borer,
-    )
+    libraryDependencies ++= Dependencies.borerjson.value
   )
   .jvmSettings(
     libraryDependencies ++= List(
