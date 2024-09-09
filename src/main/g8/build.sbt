@@ -52,7 +52,7 @@ lazy val shared = crossProject(JSPlatform, JVMPlatform)
   .settings(
     // sbt-BuildInfo plugin can write any (simple) data available in sbt at
     // compile time to a `case class BuildInfo` that it makes available at runtime.
-    buildInfoKeys := Seq[BuildInfoKey](scalaVersion, sbtVersion, BuildInfoKey("laminarVersion" -> Versions.Laminar)),
+    //buildInfoKeys := Seq[BuildInfoKey](scalaVersion, sbtVersion, BuildInfoKey("laminarVersion" -> Versions.Laminar)),
     // The BuildInfo case class is located in target/scala<version>/src_managed,
     // and with this setting, you'll need to `import com.raquo.buildinfo.BuildInfo`
     // to use it.
