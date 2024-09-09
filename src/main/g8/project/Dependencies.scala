@@ -24,8 +24,8 @@ object Dependencies {
 
   val borerJson: Def.Initialize[Seq[ModuleID]] = Def.setting {
     Seq(
-      "io.bullet" %%% "borer-core" % DependencyVersions.borerJson,
-      "io.bullet" %%% "borer-derivation" % DependencyVersions.borerJson
+      "io.bullet" %%% "borer-core" % DependencyVersions.borerjson,
+      "io.bullet" %%% "borer-derivation" % DependencyVersions.borerjson
     )
   }
 
