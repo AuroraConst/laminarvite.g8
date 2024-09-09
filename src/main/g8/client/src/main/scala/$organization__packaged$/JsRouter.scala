@@ -70,7 +70,7 @@ object JsRouter extends waypoint.Router[Page](
       // Sets the id attribute of the title element into which we add this link
       Modifier(parentEl => parentEl.ref.id = id),
       // Creates a link and inserts it into the title
-      a(cls("u-titleLink"), href(s"#$id"), caption)
+      a(cls("u-titleLink"), href(s"#\$id"), caption)
     )
   }
 }
