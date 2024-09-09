@@ -22,9 +22,10 @@ object Dependencies {
     )
   }
 
-  val zioJson: Def.Initialize[Seq[ModuleID]] = Def.setting {
+  val borerJson: Def.Initialize[Seq[ModuleID]] = Def.setting {
     Seq(
-      "dev.zio" %%% "zio-json" % "0.6.2"
+      "io.bullet" %%% "borer-core" % DependencyVersions.borerJson,
+      "io.bullet" %%% "borer-derivation" % DependencyVersions.borerJson
     )
   }
 
