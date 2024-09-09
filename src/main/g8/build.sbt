@@ -44,3 +44,37 @@ lazy val controlledform = project.in(file("."))
     // Tell ScalablyTyped that we manage `npm install` ourselves
     externalNpm := baseDirectory.value,
   )
+
+
+lazy val shared = crossProject(JSPlatform, JVMPlatform)
+  .in(file("."))
+  .enablePlugins(BuildInfoPlugin)
+  .settings(commonSettings)
+  .settings(
+    // sbt-BuildInfo plugin can write any (simple) data available in sbt at
+    // compile time to a `case class BuildInfo` that it makes available at runtime.
+    buildInfoKeys := Seq[BuildInfoKey](scalaVersion, sbtVersion, BuildInfoKey("laminarVersion" -> Versions.Laminar)),
+    // The BuildInfo case class is located in target/scala<version>/src_managed,
+    // and with this setting, you'll need to `import com.raquo.buildinfo.BuildInfo`
+    // to use it.
+    buildInfoPackage := "com.raquo.buildinfo"
+    // Because we add BuildInfo to the `shared` project, this will be available
+    // on both the client and the server, but you can also make it e.g. server-only.
+  )
+  .settings(
+    libraryDependencies ++= List(
+      // JSON codec
+      "io.bullet" %%% "borer-core" % Versions.Borer,
+      "io.bullet" %%% "borer-derivation" % Versions.Borer,
+    )
+  )
+  .jvmSettings(
+    libraryDependencies ++= List(
+      // This dependency lets us put @JSExportAll and similar Scala.js
+      // annotations on data structures shared between JS and JVM.
+      // With this library, on the JVM, these annotations compile to
+      // no-op, which is exactly what we need.
+      "org.scala-js" %% "scalajs-stubs" % Versions.ScalaJsStubs
+    )
+  )
+
