@@ -1,7 +1,7 @@
 package $organization$.app
 
-import com.axiom.app.pages.Page
-import com.axiom.app.routes
+import $organization$.app.pages.Page
+import $organization$.app.routes
 import com.raquo.laminar.api.L.*
 import com.raquo.utils.JsonUtils.*
 import com.raquo.waypoint
