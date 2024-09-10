@@ -1,3 +1,4 @@
-<H1>Getting Started</H1>
-- cd client
-- npminit.bat to install  typescript and vite plugin
+# Getting Started
+* cd client
+* npminit.bat to install  typescript and vite plugin
+* npm run dev
