@@ -5,7 +5,7 @@ ThisBuild / version := "0.0.1"
 
 ThisBuild / scalaVersion := DependencyVersions.scala
 lazy val root = project.in(file("."))
-  .aggregate(shared,client)
+  .aggregate(client)
 
 
 lazy val client = project.in(file("client"))
