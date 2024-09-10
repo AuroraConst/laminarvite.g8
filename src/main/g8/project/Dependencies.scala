@@ -17,8 +17,7 @@ object Dependencies {
 
   val laminar: Def.Initialize[Seq[ModuleID]] = Def.setting {
     Seq(
-      "com.raquo" %%% "laminar" % DependencyVersions.laminar,
-      "com.raquo" %%% "waypoint" % DependencyVersions.waypoint   // Depends on Airstream 17.0.0 & URL DSL 0.6.2
+      "com.raquo" %%% "laminar" % DependencyVersions.laminar
     )
   }
 
