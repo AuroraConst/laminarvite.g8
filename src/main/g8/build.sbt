@@ -24,7 +24,7 @@ lazy val controlledform = project.in(file("client"))
     scalaJSLinkerConfig ~= {
       _.withModuleKind(ModuleKind.ESModule)
         .withModuleSplitStyle(
-          ModuleSplitStyle.SmallModulesFor(List("livechart")))
+          ModuleSplitStyle.SmallModulesFor(List("client")))
     },
 
     /*
