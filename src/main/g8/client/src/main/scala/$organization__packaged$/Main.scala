@@ -18,38 +18,25 @@ object Main {
     // Always have the browser dev console open when developing web UIs.
     println("-- Scala.js app start --")
 
-    // Find the div to render the app into. It's defined in index.html
-    lazy val container = dom.document.getElementById("root")
 
-    lazy val appElement = {
-      div(
-        cls := "JsApp",
-        div(
-          cls := "-content",
-          // BEGIN[waypoint/currentPageSignal/backToHome]
-          child.maybe <-- JsRouter.currentPageSignal.map {
-            case HomePage => None
-            case _ => Some(h3(cls("-backToHome"), a(navigateTo(HomePage), "Back to home")))
-          },
-          // END[waypoint/currentPageSignal/backToHome]
+    dom.document.querySelector("#app").innerHTML = s"""
+     <div>
+      <a href="https://vitejs.dev" target="_blank">
+        <img src="/vite.svg" class="logo" alt="Vite logo" />
+      </a>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+        <img src="$javascriptLogo" class="logo vanilla" alt="JavaScript logo" />
+      </a>
+      <h1>Hello Scala.js!</h1>
+      <div class="card">
+        <button id="counter" type="button"></button>
+      </div>
+      <p class="read-the-docs">
+        Click on the Vite logo to learn more
+      </p>
+    </div>
+    """
 
-          // #Exercise for advanced readers: JsRouter.currentPageSignal emits
-          // very rarely (only when user navigates to another page). However,
-          // imagine if it was emitting various pages 1000 times per second.
-          // Your task: learn about the `split` operator to understand what
-          // is inefficient about this .map in such a scenario, and fix the
-          // inefficiency using the `splitOne` version of that operator.
-          child <-- JsRouter.currentPageSignal.map {
-            case page: TitledPage => h1(page.title)
-            case _ => emptyNode
-          },
-          // BEGIN[waypoint/currentPageSignal/view]
-          child <-- views
-          // END[waypoint/currentPageSignal/view]
-        )
-      )
-    }
-    render(container, appElement)
 
   
 }
