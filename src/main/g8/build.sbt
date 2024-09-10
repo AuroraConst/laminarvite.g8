@@ -1,9 +1,10 @@
 import org.scalajs.linker.interface.ModuleSplitStyle
 
-organization := "com.axiom"
-name := "myform"
-version := "0.0.1"
-scalaVersion := DependencyVersions.scala
+ThisBuild / organization := "com.axiom"
+ThisBuild / name := "myform"
+ThisBuild / version := "0.0.1"
+
+ThisBuild / scalaVersion := DependencyVersions.scala
 
 lazy val controlledform = project.in(file("client"))
   .enablePlugins(ScalaJSPlugin) // Enable the Scala.js plugin in this project
@@ -47,7 +48,17 @@ lazy val controlledform = project.in(file("client"))
 lazy val shared = crossProject(JSPlatform, JVMPlatform)
   .in(file("."))
   .settings(
+    //empty
+  )
+  .jsSettings(
     libraryDependencies ++= Dependencies.borerJson.value
+    
+    // Tell Scala.js to export all the public members of the shared project
+    // to the global scope, so that they can be accessed from JavaScript
+    // (this is necessary for the shared project to be usable from JavaScript)
+    scalaJSLinkerConfig ~= {
+      _.withESFeatures(_.withUseECMAScript2015(false))
+    }
   )
   .jvmSettings(
     libraryDependencies ++= List(
