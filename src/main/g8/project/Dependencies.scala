@@ -21,6 +21,7 @@ object Dependencies {
     )
   }
 
+  //json codec library
   val borerJson: Def.Initialize[Seq[ModuleID]] = Def.setting {
     Seq(
       "io.bullet" %%% "borer-core" % DependencyVersions.borerjson,
