@@ -47,18 +47,8 @@ lazy val controlledform = project.in(file("client"))
 
 lazy val shared = crossProject(JSPlatform, JVMPlatform)
   .in(file("."))
-  .settings(
-    //empty
-  )
-  .jsSettings(
+  .settings (
     libraryDependencies ++= Dependencies.borerJson.value
-    
-    // Tell Scala.js to export all the public members of the shared project
-    // to the global scope, so that they can be accessed from JavaScript
-    // (this is necessary for the shared project to be usable from JavaScript)
-    scalaJSLinkerConfig ~= {
-      _.withESFeatures(_.withUseECMAScript2015(false))
-    }
   )
   .jvmSettings(
     libraryDependencies ++= List(
