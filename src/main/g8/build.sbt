@@ -1,7 +1,7 @@
 import org.scalajs.linker.interface.ModuleSplitStyle
 
 organization := "com.axiom"
-name := "$name$"
+name := "myform"
 version := "0.0.1"
 scalaVersion := DependencyVersions.scala
 
@@ -9,7 +9,6 @@ lazy val controlledform = project.in(file("client"))
   .enablePlugins(ScalaJSPlugin) // Enable the Scala.js plugin in this project
   .enablePlugins(ScalablyTypedConverterExternalNpmPlugin)
   .settings(
-    
 
     // Tell Scala.js that this is an application with a main method
     scalaJSUseMainModuleInitializer := true,
