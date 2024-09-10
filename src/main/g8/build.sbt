@@ -1,7 +1,6 @@
 import org.scalajs.linker.interface.ModuleSplitStyle
 
 ThisBuild / organization := "com.axiom"
-ThisBuild / name := "myform"
 ThisBuild / version := "0.0.1"
 
 ThisBuild / scalaVersion := DependencyVersions.scala
