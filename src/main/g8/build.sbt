@@ -4,7 +4,7 @@ ThisBuild / organization := "com.axiom"
 ThisBuild / version := "0.0.1"
 
 ThisBuild / scalaVersion := DependencyVersions.scala
-lazy val root = project.in(file".")
+lazy val root = project.in(file("."))
   .aggregate(shared,client)
 
 
