@@ -4,6 +4,9 @@ ThisBuild / organization := "com.axiom"
 ThisBuild / version := "0.0.1"
 
 ThisBuild / scalaVersion := DependencyVersions.scala
+lazy val root = project.in(file".")
+  .aggregate(shared,client)
+
 
 lazy val client = project.in(file("client"))
   .enablePlugins(ScalaJSPlugin) // Enable the Scala.js plugin in this project
@@ -45,7 +48,7 @@ lazy val client = project.in(file("client"))
 
 
 lazy val shared = crossProject(JSPlatform, JVMPlatform)
-  .in(file("."))
+  .in(file("shared"))
   .settings (
     libraryDependencies ++= Dependencies.borerJson.value
   )
