@@ -14,7 +14,7 @@ object Main {
   }
   @main def entrypoint(): Unit = 
 
-    consoleOut ("Hello, world from console!!!!")
+    consoleOut ("Hello, world from console!!!!???")
     println("Hello, world!")
     // Scala.js outputs to the browser dev console, not the sbt session
     // Always have the browser dev console open when developing web UIs.

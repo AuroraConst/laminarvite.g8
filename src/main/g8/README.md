@@ -1,2 +1,3 @@
 <H1>Getting Started</H1>
-run npminit.bat to initialize typescript and library configurations
+- cd client
+- npminit.bat to install  typescript and vite plugin
