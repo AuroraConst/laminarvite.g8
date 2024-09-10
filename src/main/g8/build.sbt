@@ -47,7 +47,6 @@ lazy val controlledform = project.in(file("client"))
 
 lazy val shared = crossProject(JSPlatform, JVMPlatform)
   .in(file("."))
-  .settings(commonSettings)
   .settings(
     libraryDependencies ++= Dependencies.borerJson.value
   )
