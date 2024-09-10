@@ -5,7 +5,7 @@ ThisBuild / version := "0.0.1"
 
 ThisBuild / scalaVersion := DependencyVersions.scala
 
-lazy val controlledform = project.in(file("client"))
+lazy val client = project.in(file("client"))
   .enablePlugins(ScalaJSPlugin) // Enable the Scala.js plugin in this project
   .enablePlugins(ScalablyTypedConverterExternalNpmPlugin)
   .settings(
