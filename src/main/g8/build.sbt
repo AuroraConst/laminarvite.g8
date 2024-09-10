@@ -1,7 +1,7 @@
 import org.scalajs.linker.interface.ModuleSplitStyle
 
 organization := "com.axiom"
-name := "controlledform"
+name := "$name$"
 version := "0.0.1"
 
 
