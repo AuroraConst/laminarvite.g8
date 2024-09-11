@@ -11,6 +11,7 @@ lazy val root = project.in(file("."))
 lazy val client = project.in(file("client"))
   .enablePlugins(ScalaJSPlugin) // Enable the Scala.js plugin in this project
   .enablePlugins(ScalablyTypedConverterExternalNpmPlugin)
+  .dependsOn(shared.js)
   .settings(
 
     // Tell Scala.js that this is an application with a main method
